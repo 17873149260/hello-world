@@ -58,3 +58,22 @@ struct ListNode* reverseList(struct ListNode* head)
 
 
 
+#Bintree-> list
+
+void flatten（struct TreeNode *根）
+{
+    while(root)
+    {
+        if(root->left)
+        {
+            struct TreeNode * p = root->left;
+            while(p->right) 
+                p=p->right;
+
+            p->right=root->right;
+            root->right=root->left;
+            root->left=NULL;
+        }
+        root=root->right;
+    }
+}
